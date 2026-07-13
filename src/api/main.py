@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from typing import List
-from model import load_model
+from src.core.model import load_model
 
 recommender, df = load_model()
 
@@ -15,7 +15,7 @@ app = FastAPI(
 class RecommendRequest(BaseModel):
     course_titles: List[str]
 
-with open("html/home.html", "r", encoding="utf-8") as page:
+with open("../../app/html/home.html", "r", encoding="utf-8") as page:
     HTML_PAGE = page.read()
 
 @app.get("/", response_class=HTMLResponse)

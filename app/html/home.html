@@ -299,7 +299,7 @@
                     let metaParts = [];
                     if (org && org !== '—') metaParts.push(org);
                     if (difficulty && difficulty !== '—') metaParts.push(difficulty);
-                    if (rating && rating !== '—') metaParts.push(rating + '[*]');
+                    if (rating && rating !== '—') metaParts.push(rating + ' [ * ]');
                     const meta = metaParts.length > 0 ? metaParts.join(' · ') : '—';
 
                     html += `
@@ -309,7 +309,7 @@
                                 <div class="result-title">${escapeHtml(title)}</div>
                                 <div class="result-meta">${escapeHtml(meta)}</div>
                             </div>
-                            <div class="result-source ${sourceClass}">${emoji} ${escapeHtml(sourceLabel)}</div>
+                            <div class="result-source ${sourceClass}">${escapeHtml(sourceLabel)}</div>
                         </div>
                     `;
                 });

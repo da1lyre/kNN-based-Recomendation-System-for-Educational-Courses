@@ -117,7 +117,7 @@ def detect_language(text):
         return "unknown"
 
 def load_model():
-    artifacts = joblib.load("../models/knn_recommender_final.pkl")
+    artifacts = joblib.load("../../models/knn_recommender_final.pkl")
 
     recommender = Recommender(
         data=artifacts["data"],
@@ -128,7 +128,7 @@ def load_model():
 
     return recommender, df
 
-df = pd.read_csv("../data/coursera_courses.csv")
+df = pd.read_csv("../../data/raw/coursera_courses.csv")
 df["language"] = df["course_title"].apply(detect_language)
 df = df[df["language"] == "en"].copy()
 df = df.drop(columns=["language"])
